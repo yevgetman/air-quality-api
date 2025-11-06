@@ -1,6 +1,6 @@
-# Air Quality API - Django Microservice
+# Air Quality API Microservice
 
-A comprehensive Django-based microservice that blends multiple air quality data sources to provide unified, hyper-local, real-time air quality information for U.S. and Canadian locations.
+A comprehensive microservice that blends multiple air quality data sources to provide unified, hyper-local, real-time air quality information for U.S. and Canadian locations.
 
 ## 📘 For API Users
 
@@ -31,8 +31,6 @@ The system follows a layered microservice architecture:
 4. **Fusion Engine** - Intelligent blending with weighted averaging
 5. **Forecast Aggregator** - Multi-source forecast merging
 6. **Response Generator** - Unified response formatting
-
-See [air_api_architecture.md](air_api_architecture.md) for detailed architecture documentation.
 
 ## 🚀 Quick Start
 
@@ -315,8 +313,6 @@ SENTRY_DSN=https://...
 
 ## 📝 Data Sources Documentation
 
-Detailed information about each data source is available in [air_quality_api_sources.md](air_quality_api_sources.md):
-
 - **EPA AirNow**: Official U.S. AQI data
 - **PurpleAir**: Community PM2.5 sensors
 - **OpenWeatherMap**: Global atmospheric models
@@ -363,13 +359,6 @@ Final weight = Trust × Time × Distance × Quality × Confidence
 **4. Import errors:**
 - Verify virtual environment is activated
 - Reinstall requirements: `pip install -r requirements/development.txt`
-
-## 📚 Additional Documentation
-
-- [Architecture Overview](air_api_architecture.md)
-- [API Sources Documentation](air_quality_api_sources.md)
-- [Implementation Plan](IMPLEMENTATION_PLAN.md)
-- API Documentation (Swagger): `/api/v1/docs/` (when enabled)
 
 ## 🤝 Contributing
 
