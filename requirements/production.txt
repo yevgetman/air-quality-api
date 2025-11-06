@@ -1,0 +1,11 @@
+-r base.txt
+
+# Production Server
+gunicorn==21.2.0
+
+# Monitoring & Logging
+sentry-sdk==1.39.2
+
+# Background Tasks (Optional)
+celery==5.3.4
+celery[redis]==5.3.4

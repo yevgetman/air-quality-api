@@ -1,0 +1,262 @@
+    <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+    <title>AirNow API Documentation</title>
+    <link rel="stylesheet" href="/css/lib/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/lib/blueprint/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="/css/lib/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FZ16JDJ5Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-8FZ16JDJ5Y');
+    </script>
+        </head>    <body>
+        <div id="header">
+    <div class="left airNowLogo">
+        <img src="/img/airNowLogo.png" alt="AirNow" />
+    </div>
+    <div class="right" style="margin: 10px 40px;">
+        <form class="left">
+                            <a class="button" href="/signout">Log Out</a>
+                    </form>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div id="navContainer">
+    <ul id="navigation">
+        <li class="first "><a href="/" title="AirNow Developers - Home">Home</a></li>
+        <li  class="selected" ><a href="/webservices" title="">Web Services</a></li>
+        <li ><a href="/feeds" title="">Data Feeds</a></li> 
+        <li ><a href="/files" title="">File Products</a></li> 
+        <li ><a href="/faq" title="AirNow Developers - FAQ">FAQ</a></li>
+        <li ><a href="/aq101" title="">Air Quality 101</a></li> 
+        
+        <li ><a href="/usagestats" title="">Analytics</a></li>
+		        
+    </ul>
+</div>
+
+<div id="pageTitleContainer">
+     <h1>
+                 <a href="/webservices" title="">Web Services</a>                                                
+        &gt; Current Observation by Latitude and Longitude <span class="right apiKeyContainer">Your API Key: D2799CF3-1E94-4545-B522-154A29C18659</span></h1>
+    
+</div>
+
+<div id="leftColumn" class="left span-5">
+    <div>
+                    <div id="sidebarNav" class="span-5">
+    <ul>
+        <li>
+            <a  class="selected"  href="/CurrentObservationsByLatLon/docs">Documentation</a>
+        </li>
+
+        <li>
+            <a  href="/CurrentObservationsByLatLon/query">Query Tool</a>
+        </li>
+    </ul>
+</div>            </div>
+</div>        <div id="rightColumn" class="left span-18">
+                                                            <div class="span-24">
+                    <div class="span-20 last serviceOverview">
+    <h2 class="sectionTitle">Description</h2>
+    <div class="sectionBody">
+        <p>
+            Takes a latitude, longitude, and distance 
+            (optional) and returns the current air quality observations. If a distance 
+            is supplied, it will be used only if there is no explicit 
+            association between an AirNow reporting area's location and the supplied latitude 
+            and longitude. In this case, the observations for the nearest reporting area within 
+            the distance will be used, if available. 
+            <br /><br />
+            Rate Limiting: This web service will respond to up to 500 requests within a one-hour period, 
+            after which an error message will be returned until the next hour. 
+            See <a href="/faq#rateLimits">Rate Limiting</a> and 
+            <a href="/faq#caching">Caching Recommendations</a> in the FAQ. 
+        </p>
+    </div>
+</div>
+<div class="span-20 last serviceOverview">
+    <h2 class="sectionTitle">Base URL</h2>
+    <div class="sectionBody span-12 last">
+        <h3>/aq/observation/latLong/current</h3>
+    </div>
+</div>
+<div class="span-20 last serviceOverview">
+    <h2 class="sectionTitle">Inputs</h2>
+    <div class="sectionBody span-20 last">
+        <table class="documentation span-20">
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Format</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>latitude</td>
+                <td>Latitude in decimal degrees.</td>
+                <td>Numeric</td>
+                <td>38.33</td>
+            </tr>
+            <tr>
+                <td>longitude</td>
+                <td>Longitude in decimal degrees.</td>
+                <td>Number</td>
+                <td>-122.28</td>
+            </tr>
+            <tr>
+                <td>distance<br />(optional)</td>
+                <td>
+                    If no reporting area is associated with the 
+                    latitude/longitude, look for an observation from a nearby 
+                    reporting area within this distance (in miles).
+                </td>
+                <td>Number</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>format</td>
+                <td>
+                    Format of the payload file returned. 
+                    <br />
+                    Options:
+                    <ul>
+                        <li>CSV (text/csv)</li>
+                        <li>JSON (application/json)</li>
+                        <li>XML (application/xml)</li>
+                    </ul>
+                </td>
+                <td>Text</td>
+                <td>application/json</td>
+            </tr>
+            <tr>
+                <td>api_key</td>
+                <td>
+                    Unique API key, associated with the AirNow user account.
+                </td>
+                <td>Text</td>
+                <td>4d36e978-e325-11cec1-08002be10318</td>
+            </tr>
+        </table>
+    </div>
+  </div>
+  <div class="span-20 last serviceOverview">
+    <h2 class="sectionTitle">Outputs</h2>
+    <div class="sectionBody span-20 last">
+        <table class="documentation span-20">
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Format</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>dateObserved</td>
+                <td>Date of observation.</td>
+                <td>Date string<br />(yyyy-mm-dd)</td>
+                <td>2012-02-01</td>
+            </tr>
+            <tr>
+                <td>hourObserved</td>
+                <td>Hour of observation (00-23 LST). Marks end of measurement period in standard time (e.g., a data value from 9:00 LST was measured between 8:00-8:59 LST).</td>
+                <td>Number</td>
+                <td>01</td>
+            </tr>
+            <tr>
+                <td>localTimeZone</td>
+                <td>Time zone of observed data value.</td>
+                <td>Text</td>
+                <td>PST</td>
+            </tr>
+            <tr>
+                <td>reportingArea</td>
+                <td>
+                    City or area name of observed data (data values are 
+                    peak of monitoring sites associated with this area).
+                </td>
+                <td>Text</td>
+                <td>Sacramento</td>
+            </tr>
+            <tr>
+                <td>stateCode</td>
+                <td>Two-character state abbreviation.</td>
+                <td>Text</td>
+                <td>CA</td>
+            </tr>
+            <tr>
+                <td>latitude</td>
+                <td>Latitude in decimal degrees.</td>
+                <td>Number</td>
+                <td>38.33</td>
+            </tr>
+            <tr>
+                <td>longitude</td>
+                <td>Longitude in decimal degrees.</td>
+                <td>Number</td>
+                <td>-122.28</td>
+            </tr>
+            <tr>
+                <td>parameterName</td>
+                <td>Name of parameter.</td>
+                <td>Text</td>
+                <td>Ozone</td>
+            </tr>
+            <tr>
+                <td>aqi</td>
+                <td>
+                    Observed AQI value (peak value of monitoring sites 
+                    associated with a reporting area).
+                </td>
+                <td>Number</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>categoryNumber</td>
+                <td>
+                    Observed AQI category number:
+                    <ol>
+                        <li>Good</li>
+                        <li>Moderate</li>
+                        <li>Unhealthy for Sensitive Groups</li>
+                        <li>Unhealthy</li>
+                        <li>Very Unhealthy</li>
+                        <li>Hazardous</li>
+                        <li>Unavailable</li>
+                    </ol>
+                </td>
+                <td>Number</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>categoryName</td>
+                <td>
+                    Observed AQI category name:
+                    <ul>
+                        <li>Good</li>
+                        <li>Moderate</li>
+                        <li>Unhealthy for Sensitive Groups</li>
+                        <li>Unhealthy</li>
+                        <li>Very Unhealthy</li>
+                        <li>Hazardous</li>
+                        <li>Unavailable</li>
+                    </ul>
+                </td>
+                <td>Text</td>
+                <td>Good</td>
+            </tr>
+        </table>
+    </div>
+</div>            </div>
+        </div>
+        <div id="footer">
+    <a href="mailto:dmc@airnowtech.org">Contact Us</a>
+</div>    </body>
+</html>
